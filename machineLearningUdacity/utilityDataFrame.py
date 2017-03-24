@@ -26,7 +26,7 @@ def get_data(symbols, dates):
 
 def test_run():
     # Define a date range
-    dates = pd.date_range('2010-01-22', '2010-01-26')
+    dates = pd.date_range('2016-11-05', '2016-11-16')
 
     # Choose stock symbols to read
     symbols = ['GOOG', 'IBM', 'GLD']
