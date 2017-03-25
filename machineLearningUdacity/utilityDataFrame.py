@@ -26,14 +26,14 @@ def get_data(symbols, dates):
 
 def test_run():
     # Define a date range
-    dates = pd.date_range('2016-11-05', '2016-11-16')
+    dates = pd.date_range('2016-11-01', '2016-11-30')
 
     # Choose stock symbols to read
     symbols = ['GOOG', 'IBM', 'GLD']
 
     # Get stock data
     df = get_data(symbols, dates)
-    print (df)
+    print (df.ix['2016-11-01': '2016-11-15',['GOOG','GLD']])
 
 
 if __name__ == "__main__":
