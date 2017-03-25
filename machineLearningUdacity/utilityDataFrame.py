@@ -8,9 +8,14 @@ def symbol_to_path(symbol):
 
     return os.path.join("{}.csv".format(str(symbol)))
 
+#Plot Only Selected Data
 def plot_selected(df, columns, start_index, end_index):
     plot_data(df.ix[start_index:end_index,columns],title="Selected Stocks")
 
+#Normalise to one point
+def normalise_data(df1):
+
+    return df1/df1.ix[0,:]
 
 def get_data(symbols, dates):
 
@@ -45,9 +50,11 @@ def test_run():
 
     # Get stock data
     df = get_data(symbols, dates)
-   # print (df.ix['2016-11-01': '2016-11-15',['GOOG','GLD']])
+    # print (df.ix['2016-11-01': '2016-11-15',['GOOG','GLD']])
 
-    plot_selected(df,['IBM','SPY'],'2016-02-01','2016-04-28')
+    # plot_selected(df,['IBM','SPY'],'2016-02-01','2016-04-28')
+    plot_data(normalise_data(df))
+
 
 
 if __name__ == "__main__":
