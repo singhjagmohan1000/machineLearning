@@ -8,9 +8,6 @@ def symbol_to_path(symbol):
 
     return os.path.join("{}.csv".format(str(symbol)))
 
-def plot_selected(df, columns, start_index, end_index):
-    plot_data(df.ix[start_index:end_index,columns],title="Selected Stocks")
-
 
 def get_data(symbols, dates):
 
@@ -30,7 +27,7 @@ def get_data(symbols, dates):
 
 def plot_data(df,title = "Stock Prices"):
     '''Plot Prices'''
-    ax = df.plot(title=title,fontsize=12)
+    ax = df.plot(title=title,fonrsize=2)
     ax.set_xlabel("Date")
     ax.set_ylabel("Price")
     plt.show()
@@ -47,7 +44,7 @@ def test_run():
     df = get_data(symbols, dates)
    # print (df.ix['2016-11-01': '2016-11-15',['GOOG','GLD']])
 
-    plot_selected(df,['IBM','SPY'],'2016-02-01','2016-04-28')
+    plot_data(df)
 
 
 if __name__ == "__main__":
