@@ -13,6 +13,7 @@ def plot_data(df,title = "Strock Prices"):
     ax.set_ylabel("Price")
     plt.show()
 
+
 def get_live_data(symbols_list, date):
     dff = pd.DataFrame(index=date)
     for symbol in symbols_list:
@@ -50,11 +51,12 @@ def test_run():
     dates = pd.date_range('2016-01-01','2017-02-28')
 
     symbols=['GOOG', 'IBM', 'GLD']
-    df = get_data(symbols,dates)
+    df = get_live_data(symbols,dates)
     #plot_data(df)
     print (df.mean())
     print (df.median())
     print (df.std())
+    plot_data(df)
 
 def get_rolling_mean(values, window):
     """Return rolling mean of given values, using specified window size."""
@@ -166,4 +168,5 @@ def test_rolling_mean():
 
 if __name__ == "__main__":
    # test_rolling_mean()
-    test_bollinger_run()
+    #test_bollinger_run()
+    test_run()
