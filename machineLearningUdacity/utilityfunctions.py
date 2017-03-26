@@ -38,8 +38,8 @@ def get_live_data(symbols_list, start_date,end_date,date):
 def plot_data(df,title = "Stock Prices", xlabel="Date", ylabel="Price"):
     '''Plot Prices'''
     ax = df.plot(title=title,fontsize=12)
-    ax.set_xlabel("Date")
-    ax.set_ylabel("Price")
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
     plt.show()
 
 def compute_daily_returns(df):
