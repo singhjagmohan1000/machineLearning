@@ -21,10 +21,10 @@ def get_data(symbols,dates):
             df=df.dropna(subset=["SPY"])
     return df
 
-def get_live_data(symbols_list, date):
+def get_live_data(symbols_list, start_date,end_date,date):
     dff = pd.DataFrame(index=date)
     for symbol in symbols_list:
-        data_list = yahoo_finance.Share(symbol).get_historical('2012-07-01', '2012-07-31')
+        data_list = yahoo_finance.Share(symbol).get_historical(start_date,end_date)
         data_df = pd.DataFrame(data_list, columns=['Date', 'Adj_Close'])
         data_df['Date'] = pd.to_datetime(data_df['Date'])
         data_df = data_df.set_index(data_df['Date'])
